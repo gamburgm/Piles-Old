@@ -21,7 +21,7 @@ public class Hand {
     }
     
     
-    public Hand inHand(int playerId) throws Exception {
+    public void inHand(int playerId) throws Exception {
         
         ArrayList<Card> newHand = new ArrayList<Card>();
         
@@ -35,8 +35,6 @@ public class Hand {
         }
            
         this.cards = newHand;
-        
-        return this;
     }
 }
 

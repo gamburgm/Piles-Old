@@ -14,8 +14,10 @@ public class Player {
             throws Exception {
         
         this.id = id;
-        this.hand =  new Hand(one, two, three, four).inHand(id);
+        this.hand =  new Hand(one, two, three, four);
         this.command = new Scanner(System.in);
+        
+        this.hand.inHand(id);
         
     }
 }
