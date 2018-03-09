@@ -19,5 +19,24 @@ public class Hand {
         cards.add(cardThree);
         cards.add(cardFour);
     }
+    
+    
+    public Hand inHand(int playerId) throws Exception {
+        
+        ArrayList<Card> newHand = new ArrayList<Card>();
+        
+        for (Card card : this.cards) {
+            if (playerId == 1)
+                newHand.add(new Card(card.rank, card.suit, true, false));
+            else if (playerId == 2)
+                newHand.add(new Card(card.rank, card.suit, false, true));
+            else
+                newHand.add(new Card(card.rank, card.suit, false, false));
+        }
+           
+        this.cards = newHand;
+        
+        return this;
+    }
 }
 

@@ -12,13 +12,20 @@ package piles;
 public class Card {
   int rank;
   Suit suit;
+  boolean playerOneSeen;
+  boolean playerTwoSeen;
 
-  Card(int rank, Suit suit) throws Exception {
+  Card(int rank, Suit suit, boolean playerOneSeen, boolean playerTwoSeen) 
+          throws Exception {
+      
     if (rank > 13 || rank < 1) {
         throw new Exception("invalid rank");
     }
+    
     this.rank = rank;
     this.suit = suit;
+    this.playerOneSeen = playerOneSeen;
+    this.playerTwoSeen = playerTwoSeen;
   }
 
 

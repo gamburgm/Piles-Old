@@ -10,10 +10,11 @@ public class Player {
     Hand hand;
     Scanner command;
     
-    public Player(int id, Card one, Card two, Card three, Card four) {
+    public Player(int id, Card one, Card two, Card three, Card four) 
+            throws Exception {
         
         this.id = id;
-        this.hand =  new Hand(one, two, three, four);
+        this.hand =  new Hand(one, two, three, four).inHand(id);
         this.command = new Scanner(System.in);
         
     }

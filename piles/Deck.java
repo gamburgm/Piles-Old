@@ -17,7 +17,7 @@ public class Deck {
     
     public Deck() throws Exception {
         this.rand = new Random();
-        this.cards = new ArrayList<Card>();
+        this.cards = new ArrayList<>();
         initDeck(); 
     }
     
@@ -43,7 +43,7 @@ public class Deck {
             }
         
             for (int j = 1; j <= 13; j++) {
-                    cards.add(new Card(j, suit));
+                    cards.add(new Card(j, suit, false, false));
                 
             }
         }
