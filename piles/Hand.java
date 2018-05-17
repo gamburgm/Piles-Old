@@ -14,27 +14,38 @@ public class Hand {
     ArrayList<Card> cards;
     
     public Hand(Card cardOne, Card cardTwo, Card cardThree, Card cardFour) {
-        cards.add(cardOne);
-        cards.add(cardTwo);
-        cards.add(cardThree);
-        cards.add(cardFour);
+        this.cards = new ArrayList<>();
+        
+        this.cards.add(cardOne);
+        this.cards.add(cardTwo);
+        this.cards.add(cardThree);
+        this.cards.add(cardFour);
     }
     
     
     public void inHand(int playerId) throws Exception {
         
-        ArrayList<Card> newHand = new ArrayList<Card>();
-        
         for (Card card : this.cards) {
             if (playerId == 1)
-                newHand.add(new Card(card.rank, card.suit, true, false));
+                card.playerOneSeen = true;
             else if (playerId == 2)
-                newHand.add(new Card(card.rank, card.suit, false, true));
+                card.playerTwoSeen = true;
             else
-                newHand.add(new Card(card.rank, card.suit, false, false));
+                ;
         }
-           
-        this.cards = newHand;
+    }
+    
+    public Card chooseCard(int card) {
+        if (card < cards.size() && card >= 1) {
+            return cards.get(card - 1);
+        }
+        else {
+            return null;
+        }
+    }
+    
+    public void removeCard(int card) {
+        this.cards.remove(card - 1);
     }
 }
 

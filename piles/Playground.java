@@ -18,7 +18,11 @@ public class Playground {
     Pile pileThree;
     Pile pileFour;
     Deck deck;
+    boolean playerOnesTurn;
     
+    /**
+     *
+     */
     public Playground() throws Exception {
         this.deck = new Deck();
         
@@ -31,7 +35,58 @@ public class Playground {
         this.pileThree = new Pile(deck.draw());
         this.pileFour = new Pile(deck.draw());
         
-        
+        this.playerOnesTurn = true;
     }
+    
+    public void seePile() {
+        int pileNum;
+        Player p;
+        
+        if (playerOnesTurn) {
+            p = playerOne;
+        }
+        else {
+            p = playerTwo;
+        }
+        
+        pileNum = p.selectPile();
+        p.viewPile(this.choosePile(pileNum));
+    }
+    
+    public void addCard() {
+        int pileNum;
+        Player p;
+        
+        if (playerOnesTurn) {
+            p = playerOne;
+        }
+        else {
+            p = playerTwo;
+        }
+        
+        pileNum = p.selectPile();
+        p.addToPile(this.choosePile(pileNum));
+    }
+    
+    
+    public Pile choosePile(int pileNum) {
+        switch(pileNum) {
+            case 1:
+                return pileOne;
+            case 2:
+                return pileTwo;
+            case 3:
+                return pileThree;
+            case 4:
+                return pileFour;
+            default:
+                return pileOne;
+        }
+    }
+    
+    
+    //fix error checking
+    //figure out how to remove card from hand when it's selected
+    //add to github
 }
 
