@@ -23,7 +23,7 @@ public class Deck {
     
     private void initDeck() throws Exception {
         
-            for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) {
             
             Suit suit;
             
@@ -45,9 +45,10 @@ public class Deck {
             for (int j = 1; j <= 13; j++) {
                     cards.add(new Card(j, suit, false, false));
                 
+            
             }
         }
-        
+        System.out.println(Integer.toString(this.cards.size())); 
     }
     
     public Card draw() {
@@ -59,7 +60,6 @@ public class Deck {
         
         return drawnCard;
     }
-  
   
 }
 
