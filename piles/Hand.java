@@ -23,24 +23,30 @@ public class Hand {
     }
     
     
-    public void inHand(int playerId) throws Exception {
+    public void inHand(boolean isPlayerOne) throws Exception {
         
         for (Card card : this.cards) {
-            if (playerId == 1)
+            if (isPlayerOne)
                 card.playerOneSeen = true;
-            else if (playerId == 2)
-                card.playerTwoSeen = true;
             else
-                ;
+                card.playerTwoSeen = true;
         }
     }
     
+    public Card selectCard(int cardNum) {
+        Card c = this.chooseCard(cardNum);
+        this.removeCard(cardNum);
+        
+        return c;
+    }
+    
+    //PROPER ERROR CHECKING NEEDED
     public Card chooseCard(int card) {
         if (card < cards.size() && card >= 1) {
             return cards.get(card - 1);
         }
         else {
-            return null;
+            return cards.get(1);
         }
     }
     
